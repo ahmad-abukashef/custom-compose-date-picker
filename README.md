@@ -1,28 +1,43 @@
-Custom Date Picker for Android
+# Custom Date Picker for Android
+
 A modern, customizable date picker component built with Jetpack Compose for Android applications. Features single date selection, date range selection, and extensive customization options.
-Features
-✨ Single Date Selection - Simple date picker for selecting individual dates
-📅 Date Range Selection - Select start and end dates for ranges
-🎯 Limited Available Dates - Restrict selection to specific dates only
-🌍 Localization Support - Full support for different locales (including RTL languages like Arabic)
-🎨 Custom Styling - Customizable colors, typography, and appearance
-📱 Bottom Sheet UI - Modern bottom sheet presentation
-👆 Gesture Support - Swipe gestures for month navigation
-⚡ Pre-selected Dates - Initialize with pre-selected values
-🔒 Validation - Built-in date range validation
-Screenshots
-Add your app screenshots here
-Installation
-Step 1: Add to your project
-Copy the DatePickerBottomSheet.kt file to your project's source directory.
-Step 2: Add dependencies
-Make sure you have the following dependencies in your build.gradle file:
-kotlinimplementation "androidx.compose.ui:ui:$compose_version"
+
+## Features
+
+✨ **Single Date Selection** - Simple date picker for selecting individual dates  
+📅 **Date Range Selection** - Select start and end dates for ranges  
+🎯 **Limited Available Dates** - Restrict selection to specific dates only  
+🌍 **Localization Support** - Full support for different locales (including RTL languages like Arabic)  
+🎨 **Custom Styling** - Customizable colors, typography, and appearance  
+📱 **Bottom Sheet UI** - Modern bottom sheet presentation  
+👆 **Gesture Support** - Swipe gestures for month navigation  
+⚡ **Pre-selected Dates** - Initialize with pre-selected values  
+🔒 **Validation** - Built-in date range validation
+
+## Screenshots
+
+*Add your app screenshots here*
+
+## Installation
+
+### Step 1: Add to your project
+Copy the `DatePickerBottomSheet.kt` file to your project's source directory.
+
+### Step 2: Add dependencies
+Make sure you have the following dependencies in your `build.gradle` file:
+
+```kotlin
+implementation "androidx.compose.ui:ui:$compose_version"
 implementation "androidx.compose.material3:material3:$material3_version"
 implementation "androidx.activity:activity-compose:$activity_compose_version"
-Usage
-Basic Single Date Selection
-kotlin@Composable
+```
+
+## Usage
+
+### Basic Single Date Selection
+
+```kotlin
+@Composable
 fun MyScreen() {
     var showDatePicker by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("No date selected") }
@@ -44,8 +59,12 @@ fun MyScreen() {
         )
     }
 }
-Date Range Selection
-kotlinDatePickerBottomSheet(
+```
+
+### Date Range Selection
+
+```kotlin
+DatePickerBottomSheet(
     availableDates = availableDates,
     onDismiss = { showDatePicker = false },
     onSaveDate = { dateRange ->
@@ -58,8 +77,12 @@ kotlinDatePickerBottomSheet(
     isMultiSelect = true,
     saveButtonText = "Select Range"
 )
-Custom Locale (Arabic Example)
-kotlinDatePickerBottomSheet(
+```
+
+### Custom Locale (Arabic Example)
+
+```kotlin
+DatePickerBottomSheet(
     availableDates = availableDates,
     onDismiss = { showDatePicker = false },
     onSaveDate = { date -> /* handle date */ },
@@ -67,19 +90,38 @@ kotlinDatePickerBottomSheet(
     saveButtonText = "حفظ التاريخ", // Arabic text
     locale = Locale("ar")
 )
-Pre-selected Date
-kotlinDatePickerBottomSheet(
+```
+
+### Pre-selected Date
+
+```kotlin
+DatePickerBottomSheet(
     availableDates = availableDates,
     initialDate = "2024-01-15", // Pre-selected date
     onDismiss = { showDatePicker = false },
     onSaveDate = { date -> /* handle date */ },
     isMultiSelect = false
 )
-API Reference
-DatePickerBottomSheet Parameters
-ParameterTypeRequiredDescriptionavailableDatesList<LocalDate>✅List of dates available for selectiononDismiss() -> Unit✅Callback when bottom sheet is dismissedonSaveDate(String) -> Unit✅Callback when date(s) are savedinitialDateString?❌Pre-selected date (format: YYYY-MM-DD)isMultiSelectBoolean❌Enable range selection (default: false)saveButtonTextString❌Custom text for save buttonlocaleLocale❌Locale for date formatting
-Helper Functions
-kotlin// Generate a list of available dates
+```
+
+## API Reference
+
+### DatePickerBottomSheet Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `availableDates` | `List<LocalDate>` | ✅ | List of dates available for selection |
+| `onDismiss` | `() -> Unit` | ✅ | Callback when bottom sheet is dismissed |
+| `onSaveDate` | `(String) -> Unit` | ✅ | Callback when date(s) are saved |
+| `initialDate` | `String?` | ❌ | Pre-selected date (format: YYYY-MM-DD) |
+| `isMultiSelect` | `Boolean` | ❌ | Enable range selection (default: false) |
+| `saveButtonText` | `String` | ❌ | Custom text for save button |
+| `locale` | `Locale` | ❌ | Locale for date formatting |
+
+### Helper Functions
+
+```kotlin
+// Generate a list of available dates
 fun generateAvailableDates(): List<LocalDate> {
     val today = LocalDate.now()
     return (0..60).map { today.plusDays(it.toLong()) }
@@ -100,10 +142,15 @@ fun generateWeekendsOnly(): List<LocalDate> {
         dayOfWeek == 6 || dayOfWeek == 7 // Saturday and Sunday
     }
 }
-Customization
-Colors
-Modify the CustomDatePickerColors object to change the color scheme:
-kotlinobject CustomDatePickerColors {
+```
+
+## Customization
+
+### Colors
+Modify the `CustomDatePickerColors` object to change the color scheme:
+
+```kotlin
+object CustomDatePickerColors {
     val Primary = Color(0xFF2196F3)          // Primary color
     val PrimaryContainer = Color(0xFF2196F3)  // Selected date background
     val OnPrimary = Color.White               // Text on primary color
@@ -111,38 +158,49 @@ kotlinobject CustomDatePickerColors {
     val OnSurface = Color.Black              // Default text color
     val Disabled = Color(0xFF9E9E9E)         // Disabled date color
 }
-Typography
-Customize text styles through the CustomDatePickerTypography object:
-kotlinobject CustomDatePickerTypography {
+```
+
+### Typography
+Customize text styles through the `CustomDatePickerTypography` object:
+
+```kotlin
+object CustomDatePickerTypography {
     val HeaderMedium = TextStyle(
         fontSize = 16.sp,
         fontWeight = FontWeight.Medium
     )
     // ... other text styles
 }
-Requirements
+```
 
-Minimum SDK: 26 (Android 8.0)
-Target SDK: 34
-Kotlin: 1.9.0+
-Compose BOM: 2024.02.00+
+## Requirements
 
-Examples
+- **Minimum SDK**: 26 (Android 8.0)
+- **Target SDK**: 34
+- **Kotlin**: 1.9.0+
+- **Compose BOM**: 2024.02.00+
+
+## Examples
+
 The repository includes a comprehensive example app demonstrating:
 
-Basic Single Date Selection
-Date Range Selection
-Limited Available Dates (weekdays only)
-Pre-selected Date
-Custom Locale (Arabic)
-Weekends Only Range
+1. **Basic Single Date Selection**
+2. **Date Range Selection**
+3. **Limited Available Dates** (weekdays only)
+4. **Pre-selected Date**
+5. **Custom Locale** (Arabic)
+6. **Weekends Only Range**
 
-Contributing
+## Contributing
+
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-License
+
+## License
+
+```
 MIT License
 
-Copyright (c) 2024 Ahmad Abukashef
+Copyright (c) 2024 [Your Name]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -161,6 +219,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-Support
+```
+
+## Support
+
 If you find this library helpful, please ⭐ star the repository!
-For issues and feature requests, please use the GitHub Issues page.
+
+For issues and feature requests, please use the [GitHub Issues](https://github.com/yourusername/custom-date-picker/issues) page.
