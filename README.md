@@ -16,10 +16,13 @@ A modern, customizable date picker component built with Jetpack Compose for Andr
 
 ## Screenshots
 
-![Screenshot_20250629_133250](https://github.com/user-attachments/assets/0f55c4b5-4d67-46ee-8c2a-09ef52785279)
-![Screenshot_20250629_133327](https://github.com/user-attachments/assets/6f972c3f-98c6-4199-830d-591c1ee6bed1)
-![Screenshot_20250629_133314](https://github.com/user-attachments/assets/be8a9b4b-75e0-45d7-95a1-e04b721ed534)
-![Screenshot_20250629_133304](https://github.com/user-attachments/assets/63d6f78a-33e7-4313-80ef-b7e3cb14616e)
+
+![Screenshot_20250629_133250](https://github.com/user-attachments/assets/2ae8f22b-659a-4ff2-8ec5-3fa23ae54c7c)
+![Screenshot_20250629_133304](https://github.com/user-attachments/assets/fee3b133-9ba8-4160-be8e-223d6a03fcee)
+![Screenshot_20250629_133314](https://github.com/user-attachments/assets/0af44f9b-9bac-4c98-8e81-4a9d1d63e2c2)
+![Screenshot_20250629_133327](https://github.com/user-attachments/assets/f4f28fc0-e742-470d-b851-0dc461766c93)
+
+
 
 ## Installation
 
